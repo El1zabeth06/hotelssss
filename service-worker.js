@@ -1,19 +1,18 @@
 const CACHE_NAME = 'sunset-paradise-v1';
 const URLS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/rooms.html',
-  '/servies.html',
-  '/contacts.html',
-  '/style.css',
-  '/slider.js',
-  '/hotel.jpg',
-  '/room1.jpg',
-  '/room2.jpg',
-  '/room3.jpg',
-  '/spa.jpg',
-  '/rest.jpg',
-  '/swim.jpg'
+  './index.html',
+  './rooms.html',
+  './servies.html',
+  './contacts.html',
+  './style.css',
+  './slider.js',
+  './hotel.jpg',
+  './room1.jpg',
+  './room2.jpg',
+  './room3.jpg',
+  './spa.jpg',
+  './rest.jpg',
+  './swim.jpg'
 ];
 
 self.addEventListener('install', (event) => {
