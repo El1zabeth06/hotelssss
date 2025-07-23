@@ -1,5 +1,5 @@
 const CACHE_NAME = 'sunset-paradise-v1';
-const ASSETS_TO_CACHE = [
+const URLS_TO_CACHE = [
   '/',
   '/index.html',
   '/rooms.html',
@@ -16,39 +16,29 @@ const ASSETS_TO_CACHE = [
   '/swim.jpg'
 ];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ASSETS_TO_CACHE))
-  );
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) =>
+            cache.addAll(URLS_TO_CACHE))
+    );
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
-        })
-      );
-    })
-  );
+self.addEventListener('fetch', function (event) {
+    event.respondWith(fromCache(event.request));
+    event.waitUntil(update(event.request));
 });
 
-self.addEventListener('fetch', event => {
-  if (event.request.url.includes('contacts.html')) {
-    return;
-  }
+function fromCache(request) {
+    return caches.open(CACHE_NAME).then((cache) =>
+        cache.match(request).then((matching) =>
+            matching || Promise.reject('no-match')
+        ));
+}
 
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-      .catch(() => {
-        if (event.request.headers.get('accept').includes('text/html')) {
-          return caches.match('/index.html');
-        }
-      })
-  );
-});
+function update(request) {
+    return caches.open(CACHE_NAME).then((cache) =>
+        fetch(request).then((response) =>
+            cache.put(request, response)
+        )
+    );
+}
