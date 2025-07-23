@@ -38,7 +38,7 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  if (event.request.url.includes('contacts.html') {
+  if (event.request.url.includes('contacts.html')) {
     return;
   }
 
