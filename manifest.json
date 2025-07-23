@@ -1,0 +1,10 @@
+{
+  "name": "Sunset Paradise",
+  "short_name": "SunsetParadise",
+  "description": "Райский отдых на берегу в Сочи",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#5D4037",
+  "theme_color": "#8D6E63"
+   
+}

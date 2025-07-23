@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты - Sunset Paradise</title>
+    <link rel="stylesheet" href="style.css">
+	<!-- PWA Configuration -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#8D6E63">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Sunset Paradise</h1>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="rooms.html">Номера</a>
+                <a href="servies.html">Услуги</a>
+                <a href="contacts.html" class="active">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Как нас найти</h2>
+        
+        <address>
+            <p>Краснодарский край, г. Сочи, ул. Прибрежная, 25</p>
+            <p>Телефон: +7 (862) 123-45-67</p>
+            <p>Email: welcome@sunsetparadise.ru</p>
+        </address>
+
+        
+
+        <form class="contact-form" method="POST">
+            <label>Ваше имя: 
+                <input type="text" name="name" >
+            </label>
+            
+            <label>Email: 
+                <input type="email" name="email" >
+            </label>
+            
+            <label>Телефон: 
+                <input type="tel" name="phone" >
+            </label>
+            
+            <label>Тема сообщения: 
+                <select name="subject">
+                    <option value="Бронирование" >Бронирование</option>
+                    <option value="Вопрос" >Вопрос</option>
+                    <option value="Отзыв" >Отзыв</option>
+                    <option value="Другое" >Другое</option>
+                </select>
+            </label>
+            
+            <label>Сообщение: 
+                <textarea name="message" required></textarea>
+            </label>
+            
+            <button type="submit" class="btn">Отправить сообщение</button>
+        </form>
+
+      
+    </main>
+
+    <footer>
+        <p>Sunset Paradise © </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Paradise - Райский отдых на берегу</title>
+    <link rel="stylesheet" href="style.css">
+	<!-- PWA Configuration -->
+<meta name="theme-color" content="#8D6E63">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.json">
+</head>
+<body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js', {scope: '/hotelssss/'})
+        .catch(err => console.log('ServiceWorker failed: ', err));
+    });
+  }
+</script>
+    <header>
+        <div class="container">
+            <h1 class="logo">Sunset Paradise</h1>
+            <nav>
+                <a href="index.html" class="active">Главная</a>
+                <a href="rooms.html">Номера</a>
+                <a href="servies.html">Услуги</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="simple-slider">
+            <div class="slide active">
+                <img src="hotel.jpg" alt="Отель Sunset Paradise">
+            </div>
+            <div class="slide">
+                <img src="room2.jpg" alt="Номер отеля">
+            </div>
+            <div class="slide">
+                <img src="spa.jpg" alt="SPA-центр">
+            </div>
+            <button class="slider-prev">&#10094;</button>
+            <button class="slider-next">&#10095;</button>
+        </div>
+
+        <div class="book-now-container">
+            <a href="contacts.html" class="btn book-now-btn">Забронировать сейчас</a>
+        </div>
+
+        <section class="about">
+            <h2>Sunset Paradise</h2>
+            <p>Наш отель расположен прямо на берегу моря и предлагает гостям неповторимый отдых в атмосфере уюта и комфорта. 
+            Мы сочетаем современные удобства с теплым гостеприимством, создавая идеальные условия для вашего отпуска. 
+            Каждый день в Sunset Paradise - это новые впечатления и незабываемые моменты.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sunset Paradise © 2023</p>
+    </footer>
+
+    <script src="slider.js"></script>
+</body>
+</html>
